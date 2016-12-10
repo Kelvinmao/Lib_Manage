@@ -45,6 +45,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -65,8 +66,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CSearch_Book.h" />
     <ClInclude Include="Data_Structure.h" />
     <ClInclude Include="CData_Process.h" />
+    <ClInclude Include="CSort.h" />
+    <ClInclude Include="CLibrary.h" />
+    <ClInclude Include="CPassword.h" />
+    <ClInclude Include="Time_struct.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Book_Info.txt" />
+    <Text Include="Lib_Info.txt" />
+    <Text Include="extern_Info.txt" />
+    <Text Include="log.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CLibrary.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="CData_Process.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

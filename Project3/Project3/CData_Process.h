@@ -9,37 +9,19 @@
 #include<algorithm>
 #include<list>
 #include"Data_Structure.h"
-
 using namespace std;
 
-ofstream fout;
-//Defination of Data_Processer class
-class CData_Processer{
-private:
-	list<struct Book> library;
+#ifndef DATA_PROCESS_H_
+#define DATA_PROCESS_H_
+
+//Defination of Data_Processor class
+class CData_Processor{
 public:
-	CData_Processer(){};
-	bool Input_Info(struct Book & book, const string * str_arr);
+	CData_Processor();
+	bool Constru_The_Header(const string & file_name = "Book_Info.txt");
+	bool Input_Info(Book & book);
 	bool Del_Info(const string & book_title);
 	bool Change_Info(const string & book_title);
+	bool Save_Info_To_File(const list<Book> &, const string & file_name="Book_Info.txt");
 };
-
-//Defination of Search_Book class
-class CSearch_Book{
-private:
-	list<struct Book> Cache;//To restore high-freq searching element(将高频查找的书籍进行缓存)
-public:
-	CSearch_Book(){};
-	bool Search_By_Title(const list<struct Book> & lib);
-	bool Search_By_Auth_Name(const list<struct Book> & lib);
-	bool Search_By_Pub_Dep(const list<struct Book> & lib);
-	bool Search_By_Book_Id(const list<struct Book> & lib);
-	bool Search_By_CId(const list<struct Book> & lib);
-	//*******************************************************************************************
-	//These methods,when 'time' or 'price' and etc occurs in the signature,should give chances of 
-	//choosing the low_bound and high_bound
-	//Attention!!!! To check the domain is valid or not!
-	//*******************************************************************************************
-	bool Search_By_Pub_Time(const list<struct Book> & lib,const string & time_Low,const string & time_High);
-	bool Search_By_book_Price(const list<struct Book> & lib,const string & price_Low,const string & price_High);
-};
+#endif

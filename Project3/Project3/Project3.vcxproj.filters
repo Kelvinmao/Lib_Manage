@@ -21,5 +21,45 @@
     <ClInclude Include="CData_Process.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CLibrary.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSearch_Book.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPassword.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Time_struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Lib_Info.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="extern_Info.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="log.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="Book_Info.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CLibrary.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CData_Process.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

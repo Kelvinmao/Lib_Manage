@@ -14,7 +14,7 @@ using namespace std;
 #define Data_Strcture_H_
 
 //Some macro defination
-#define Book_ID string //ID of a book(图书编号)
+#define Book_ID int //ID of a book(图书编号)
 #define Book_Title string //Title of a book(标题)
 #define Auth_Name string //Author's name（作者）
 #define Classify_ID string //（分类号）
@@ -25,9 +25,11 @@ using namespace std;
 #define Book_Price float //(价格)
 #define Auth_Comm_Add string //Add is the method you can connect with the author（作者联系方式）
 #define Pub_Comm_Add string //the method you can connect with the publish department
+#define Sear_Freq int //the search frequency of a book
 
 //Defination of Book
 struct SBook{
+	Sear_Freq S_Freq; //（查找频率）
 	Book_ID B_Id; //(书目编号)
 	Book_Title B_Tit; //(书名)
 	Auth_Name A_Name; //(作者名)
@@ -35,6 +37,8 @@ struct SBook{
 	Pub_Dep P_Dep; //(出版社名)
 	Book_Price B_Pri; //(价格)
 };
+
+typedef struct SBook Book;
 
 //Defination of Author
 struct SAuthor{
