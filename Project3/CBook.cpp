@@ -1,0 +1,50 @@
+//------------------------------------------------
+//Title: CBook.cpp
+//Type: Source file
+//Data: 2016-12-11
+//Written By: KelvinMao
+//------------------------------------------------
+
+#include<iostream>
+#include"Data_Structure.h"
+#include"CBook.h"
+#include"CLibrary.h"
+using namespace std;
+
+class CLibrary;
+CBook::CBook(int & book_Num){
+	book_num = book_Num;
+	m_pBook = new Book[book_Num];
+}
+
+bool CBook::Input_Info(){
+	//input the info of a struct book
+	int index = 0;
+	for (index = 0; index < book_num; ++index){
+		cout << "请输入书目编号" << endl;
+		cin >> m_pBook[index].B_Id;
+		cin.get();
+		cout << "请输入作者名" << endl;
+		getline(cin, m_pBook[index].A_Name);
+		cout << "请输入书名" << endl;
+		getline(cin, m_pBook[index].B_Tit);
+		cout << "请输入分类号" << endl;
+		getline(cin, m_pBook[index].C_Id);
+		cout << "请输入出版社名称" << endl;
+		getline(cin, m_pBook[index].P_Dep);
+		cout << "请输入本书价格" << endl;
+		cin >> m_pBook[index].B_Pri;
+	}
+	return true;
+}
+
+//This method is a friend function of the class CLibrary,so you can use it to modify "list<Book> Library"
+//Fucking this!!!!
+//为啥必须声明成友元类？我声明成友元函数就不行！！！！holy shit！！！
+bool CBook::Add_Book_Into_List(CLibrary & lib){
+	int index = 0;
+	for (index = 0; index < book_num; ++index)
+		lib.Library.push_back(m_pBook[index]);
+	return true;
+}
+

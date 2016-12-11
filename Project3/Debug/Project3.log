@@ -1,0 +1,17 @@
+﻿生成启动时间为 2016/12/11 23:29:32。
+     1>项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”在节点 2 上(ClCompile 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CData_Process.cpp
+         CData_Process.cpp
+     1>c:\users\kelvin\documents\visual studio 2013\projects\project3\project3\cbook.h(22): error C2061: 语法错误: 标识符“CLibrary”
+     1>c:\users\kelvin\documents\visual studio 2013\projects\project3\project3\cdata_process.h(33): error C2597: 对非静态成员“CLibrary::Library”的非法引用
+     1>c:\users\kelvin\documents\visual studio 2013\projects\project3\project3\cdata_process.h(33): error C2440: “默认参数”: 无法从“unknown”转换为“std::list<Book,std::allocator<_Ty>> &”
+                 with
+                 [
+                     _Ty=Book
+                 ]
+     1>已完成生成项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”(ClCompile 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.36
