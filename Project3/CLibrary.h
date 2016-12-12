@@ -12,7 +12,7 @@
 #include<string>
 #include"Data_Structure.h"
 #include"CBook.h"
-#include"CData_Process.h"
+#include"CData_Processor.h"
 using namespace std;
 
 //*************************************
@@ -21,11 +21,11 @@ using namespace std;
 		is a friend function of the CLibrary*/
 /*CData_Process is same as CBook*/
 //*************************************
+class CData_Processor;
 class CBook;
-class CData_Process;
 class CLibrary{
 	friend class CBook;
-	friend class CData_Process;
+	friend class CData_Processor;
 private:
 	list<Book> Library;
 	const string default_Path;//the default path of the configuration file

@@ -18,9 +18,6 @@
     <ClInclude Include="Data_Structure.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CData_Process.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -37,6 +34,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CBook.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CData_Processor.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,10 +61,10 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CData_Process.cpp">
+    <ClCompile Include="CBook.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CBook.cpp">
+    <ClCompile Include="CData_Processor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

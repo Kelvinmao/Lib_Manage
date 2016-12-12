@@ -21,18 +21,18 @@ bool CBook::Input_Info(){
 	//input the info of a struct book
 	int index = 0;
 	for (index = 0; index < book_num; ++index){
-		cout << "请输入书目编号" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的书目编号" << endl;
 		cin >> m_pBook[index].B_Id;
 		cin.get();
-		cout << "请输入作者名" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的作者名" << endl;
 		getline(cin, m_pBook[index].A_Name);
-		cout << "请输入书名" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的书名" << endl;
 		getline(cin, m_pBook[index].B_Tit);
-		cout << "请输入分类号" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的分类号" << endl;
 		getline(cin, m_pBook[index].C_Id);
-		cout << "请输入出版社名称" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的出版社名称" << endl;
 		getline(cin, m_pBook[index].P_Dep);
-		cout << "请输入本书价格" << endl;
+		cout << "请输入"<<"第"<<index+1<<"本书的价格" << endl;
 		cin >> m_pBook[index].B_Pri;
 	}
 	return true;
@@ -40,7 +40,7 @@ bool CBook::Input_Info(){
 
 //This method is a friend function of the class CLibrary,so you can use it to modify "list<Book> Library"
 //Fucking this!!!!
-//为啥必须声明成友元类？我声明成友元函数就不行！！！！holy shit！！！
+//为啥必须声明成友元类？我声明成友元函数就不行！！！！
 bool CBook::Add_Book_Into_List(CLibrary & lib){
 	int index = 0;
 	for (index = 0; index < book_num; ++index)

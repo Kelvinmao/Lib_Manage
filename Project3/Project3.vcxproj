@@ -68,7 +68,7 @@
   <ItemGroup>
     <ClInclude Include="CSearch_Book.h" />
     <ClInclude Include="Data_Structure.h" />
-    <ClInclude Include="CData_Process.h" />
+    <ClInclude Include="CData_Processor.h" />
     <ClInclude Include="CSort.h" />
     <ClInclude Include="CLibrary.h" />
     <ClInclude Include="CPassword.h" />
@@ -85,7 +85,7 @@
     <ClCompile Include="CBook.cpp" />
     <ClCompile Include="CLibrary.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="CData_Process.cpp" />
+    <ClCompile Include="CData_Processor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,7 +10,7 @@
 #include"Data_Structure.h"
 #include"CLibrary.h"
 using namespace std;
-
+class CLibrary;
 class CBook{
 private:
 	Book * m_pBook;
@@ -20,6 +20,7 @@ public:
 	explicit CBook(int & book_Num);
 	bool Input_Info(); 
 	bool Add_Book_Into_List(CLibrary & lib);
+	~CBook(){ delete[] m_pBook; }
 };
 
 #endif
