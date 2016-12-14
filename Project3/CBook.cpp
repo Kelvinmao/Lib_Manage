@@ -34,6 +34,8 @@ bool CBook::Input_Info(){
 		getline(cin, m_pBook[index].P_Dep);
 		cout << "请输入"<<"第"<<index+1<<"本书的价格" << endl;
 		cin >> m_pBook[index].B_Pri;
+		cout << "请输入" << "第" << index + 1 << "本书的出版日期" << endl;
+		cin >> m_pBook[index].P_Tim;
 	}
 	return true;
 }

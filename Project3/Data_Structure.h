@@ -9,6 +9,7 @@
 
 #include<string>
 #include<vector>
+#include<list>
 using namespace std;
 //using std::string
 
@@ -25,9 +26,12 @@ using namespace std;
 #define Auth_Comm_Add string //Add is the method you can connect with the author（作者联系方式）
 #define Pub_Comm_Add string //the method you can connect with the publish department
 #define Sear_Freq int //the search frequency of a book
+#define Surplus int//the residue of a book
 
 //Defination of Book
 struct SBook{
+	SBook * pNext_Book;//Book结构中加一个指针域，把具有相同属性的书串成链表
+	Surplus B_surplus;//剩余量
 	Sear_Freq S_Freq; //（查找频率）
 	Book_ID B_Id; //(书目编号)
 	Book_Title B_Tit; //(书名)
@@ -35,6 +39,7 @@ struct SBook{
 	Classify_ID C_Id; //(分类号)
 	Pub_Dep P_Dep; //(出版社名)
 	Book_Price B_Pri; //(价格)
+	Pub_Tim P_Tim;//(出版日期)
 };
 
 typedef struct SBook Book;
@@ -54,5 +59,15 @@ struct SPublish_Dep{
 	vector<Pub_Auth> Auth;//All author belongs to the publish department(某社所有签约作者)
 	Pub_Comm_Add Pub_Add; //(出版社联系方式)
 };
+
+typedef list<Book> * List_head;
+/**********************************************/
+/*The headers are:
+1.B_Tit
+2.A_Name
+3.C_ID
+4.Pub_Dep*/
+/**********************************************/
+typedef vector<List_head> Classify_Tree;
 
 #endif

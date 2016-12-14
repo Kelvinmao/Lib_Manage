@@ -9,9 +9,16 @@
 
 #include"Data_Structure.h"
 #include"CLibrary.h"
+#include"CData_Processor.h"
 using namespace std;
 class CLibrary;
+/****************************************************************************************/
+//Modified at 2016-12-14,to make CData_Processor::Classify methods can visit the m_pBook
+//so,I add CData_Processor to be the friend class of the CBook
+/****************************************************************************************/
+class CData_Processor;
 class CBook{
+	friend class CData_Processor;
 private:
 	Book * m_pBook;
 	int book_num;

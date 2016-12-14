@@ -12,6 +12,7 @@
 #include<string>
 #include"Data_Structure.h"
 #include"CBook.h"
+#include"CSort.h"
 #include"CData_Processor.h"
 using namespace std;
 
@@ -19,16 +20,19 @@ using namespace std;
 /*A forward declare of CBook,
 	for CBook::Add_Book_Into_List
 		is a friend function of the CLibrary*/
-/*CData_Process is same as CBook*/
+/*CData_Process is same as CBook,so is CSort*/
 //*************************************
 class CData_Processor;
 class CBook;
+class CSort;
 class CLibrary{
 	friend class CBook;
+	friend class CSort;
 	friend class CData_Processor;
 private:
 	list<Book> Library;
 	const string default_Path;//the default path of the configuration file
+	Classify_Tree classify_Tree;
 public:
 	CLibrary();
 	bool Set_And_Save_Info(); //To Input the info of the library,like name,date and etc.

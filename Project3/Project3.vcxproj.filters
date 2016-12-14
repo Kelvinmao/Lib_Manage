@@ -39,6 +39,9 @@
     <ClInclude Include="CData_Processor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CLogFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Lib_Info.txt">
@@ -65,6 +68,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CData_Processor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CLogFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

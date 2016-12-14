@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CLogFile.h" />
     <ClInclude Include="CSearch_Book.h" />
     <ClInclude Include="Data_Structure.h" />
     <ClInclude Include="CData_Processor.h" />
@@ -84,6 +85,8 @@
   <ItemGroup>
     <ClCompile Include="CBook.cpp" />
     <ClCompile Include="CLibrary.cpp" />
+    <ClCompile Include="CLogFile.cpp" />
+    <ClCompile Include="CSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CData_Processor.cpp" />
   </ItemGroup>
