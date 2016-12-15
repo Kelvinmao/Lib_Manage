@@ -50,3 +50,6 @@ bool CBook::Add_Book_Into_List(CLibrary & lib){
 	return true;
 }
 
+bool CBook::operator==(const CBook & book){
+
+}

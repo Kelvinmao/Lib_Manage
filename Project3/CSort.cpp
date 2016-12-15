@@ -1,5 +1,5 @@
 //------------------------------------------------
-//Title: CBook.cpp
+//Title: CSort.cpp
 //Type: Source file
 //Data: 2016-12-14
 //Written By: KelvinMao
@@ -8,36 +8,26 @@
 #include<iostream>
 #include<list>
 #include<algorithm>
+#include<vector>
 #include"CSort.h"
 #include"CLibrary.h"
+//#include"Custom_Comp.h"
 #include"Data_Structure.h"
 using namespace std;
 
-/*Define custom Compare functions*/
-bool CSort::comp_Two_Book_Book_Price(Book & book1, Book & book2){
-	return book1.B_Pri > book2.B_Pri;
-}
-
-bool CSort::comp_Two_Book_By_Id(Book & book1, Book & book2){
-	return book1.B_Id > book2.B_Id;
-}
-
-bool CSort::comp_Two_Book_By_Pub_Time(Book & book1, Book & book2){
-	return book1.P_Tim > book2.P_Tim;
-}
-
+//Why the iterator should be the "rbegin" or "rend"??	Interesting......
 bool CSort::Sort_By_Book_Id(CLibrary & lib){
-	sort(lib.Library.begin(), lib.Library.end(), comp_Two_Book_By_Id);
+	std::sort(lib.Library.rbegin(),lib.Library.rend(),comp_Two_Book_By_Id);
 	return true;
 }
 
 bool CSort::Sort_by_Book_Price(CLibrary & lib){
-	sort(lib.Library.begin(), lib.Library.end(), comp_Two_Book_Book_Price);
+	std::sort(lib.Library.rbegin(), lib.Library.rend(), comp_Two_Book_Book_Price);
 	return true;
 }
 
 bool CSort::Sort_By_Pub_Time(CLibrary & lib){
-	sort(lib.Library.begin(), lib.Library.end(), comp_Two_Book_By_Pub_Time);
+	std::sort(lib.Library.rbegin(), lib.Library.rend(), comp_Two_Book_By_Pub_Time);
 	return true;
 }
 
