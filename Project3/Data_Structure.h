@@ -30,6 +30,7 @@ using namespace std;
 
 //Defination of Book
 struct SBook{
+	bool operator <(const SBook & book){ return B_surplus < book.B_surplus; }
 	SBook * pNext_Book;//Book结构中加一个指针域，把具有相同属性的书串成链表
 	Surplus B_surplus;//剩余量
 	Sear_Freq S_Freq; //（查找频率）

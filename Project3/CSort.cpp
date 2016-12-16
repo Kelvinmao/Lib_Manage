@@ -6,28 +6,41 @@
 //------------------------------------------------
 
 #include<iostream>
-#include<list>
 #include<algorithm>
+#include<list>
 #include<vector>
+#include<string>
 #include"CSort.h"
 #include"CLibrary.h"
-//#include"Custom_Comp.h"
 #include"Data_Structure.h"
+#include"Comp_Structures.h"
+
 using namespace std;
+
+bool Sort_By_Id(const Book & book1, const Book & book2){
+	if (book1.B_Id < book2.B_Id)
+		return true;
+	if (book1.B_Id > book2.B_Id)
+		return false;
+	return false;
+}
 
 //Why the iterator should be the "rbegin" or "rend"??	Interesting......
 bool CSort::Sort_By_Book_Id(CLibrary & lib){
-	std::sort(lib.Library.rbegin(),lib.Library.rend(),comp_Two_Book_By_Id);
+	/*sort_book_ID sort_id((*lib.Library.begin()).B_Id);*/
+	std::sort(lib.Library.begin(), lib.Library.end(),Sort_By_Id);
 	return true;
 }
 
 bool CSort::Sort_by_Book_Price(CLibrary & lib){
-	std::sort(lib.Library.rbegin(), lib.Library.rend(), comp_Two_Book_Book_Price);
+	/*sort_book_price sort_pri((*lib.Library.begin()).B_Pri);*/
+	std::sort(lib.Library.begin(), lib.Library.end(), Sort_By_Id);
 	return true;
 }
 
 bool CSort::Sort_By_Pub_Time(CLibrary & lib){
-	std::sort(lib.Library.rbegin(), lib.Library.rend(), comp_Two_Book_By_Pub_Time);
+	/*sort_book_pub_time sort_tim((*lib.Library.begin()).P_Tim);*/
+	std::sort(lib.Library.begin(), lib.Library.end(), Sort_By_Id);
 	return true;
 }
 

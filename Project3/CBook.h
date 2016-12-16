@@ -27,7 +27,6 @@ public:
 	explicit CBook(int & book_Num);
 	bool Input_Info(); 
 	bool Add_Book_Into_List(CLibrary & lib);
-	bool operator==(const CBook & book);
 	~CBook(){ delete[] m_pBook; }
 };
 

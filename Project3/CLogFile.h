@@ -10,13 +10,13 @@
 
 #include<iostream>
 #include<string>
-#include<queue>
+#include<vector>
 using namespace std;
 
 class CLogFile{
 private:
 	/*const string m_Default_Path;*/ //I'm not sure is this variable is neccessary,so,put it aside.
-	queue<string> Msg_Que;
+	vector<string> Msg_Que;
 public:
 	explicit CLogFile(const string & Log_File_Path="log.txt");
 	const string & AckTime();//Acquire the system time

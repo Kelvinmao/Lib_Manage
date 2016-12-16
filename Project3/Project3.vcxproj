@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Comp_Structures.h" />
     <ClInclude Include="CLogFile.h" />
     <ClInclude Include="CSearch_Book.h" />
     <ClInclude Include="Data_Structure.h" />

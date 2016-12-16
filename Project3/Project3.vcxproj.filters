@@ -42,6 +42,9 @@
     <ClInclude Include="CLogFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Comp_Structures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Lib_Info.txt">

@@ -49,7 +49,3 @@ bool CBook::Add_Book_Into_List(CLibrary & lib){
 		lib.Library.push_back(m_pBook[index]);
 	return true;
 }
-
-bool CBook::operator==(const CBook & book){
-
-}

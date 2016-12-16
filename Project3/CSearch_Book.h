@@ -27,7 +27,7 @@ public:
 	bool Search_By_Auth_Name(const CLibrary & lib,const string & auth_Name);
 	bool Search_By_Pub_Dep(const CLibrary & lib,const string & pub_Dep);
 	bool Search_By_CId(const CLibrary & lib,const string & c_ID);
-	bool Search_By_Book_Id(const list<Book> & lib,const string & book_ID);
+	bool Search_By_Book_Id(const list<Book> & lib,const Book_ID & book_ID);
 	//*******************************************************************************************
 	//These methods,when 'time' or 'price' and etc occurs in the signature,should give chances of 
 	//choosing the low_bound and high_bound
