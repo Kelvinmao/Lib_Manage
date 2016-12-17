@@ -7,7 +7,6 @@
 #include<string>
 #include"Data_Structure.h"
 using namespace std;
-
 #ifndef COMP_STRUCTURES_H_
 #define COMP_STRUCTURES_H_
 
@@ -36,29 +35,45 @@ typedef struct finder_pub_Dep{
 	bool operator()(const Book & book){ return p_dep == book.P_Dep; }
 }finder_pub_Dep;
 
+typedef struct finder_book_id{
+	Book_ID b_id;
+	finder_book_id(const Book_ID & bid) :b_id(bid){}
+	bool operator()(const Book & book){ return b_id == book.B_Id; }
+}finder_book_id;
 
-typedef struct sort_book_ID{
-	Book_ID book_id;
-	sort_book_ID(const Book_ID & bid) :book_id(bid){}
-	bool operator ()(const Book & book){ return book_id < book.B_Id; }
-}sort_book_ID;
-
-typedef struct sort_pub_Time{
-	Pub_Tim pub_time;
-	sort_pub_Time(const Pub_Tim & p_tim) :pub_time(p_tim){}
-	bool operator()(const Book & book){ return pub_time < book.P_Tim; }
-}sort_pub_Time;
-
-typedef struct sort_book_price{
-	Book_Price price;
-	sort_book_price(const Book_Price & b_price) :price(b_price){}
-	bool operator()(const Book & book){ return price < book.B_Pri; }
-}sort_book_price;
-
-typedef struct sort_book_pub_time{
+typedef struct finder_pub_time{
 	Pub_Tim p_time;
-	sort_book_pub_time(const Pub_Tim & time) :p_time(time){}
-	bool operator()(const Book & book){ return p_time < book.P_Tim; }
-}sort_book_pub_time;
+	finder_pub_time(const Pub_Tim & ptime) : p_time(ptime){}
+	bool operator()(const Book & book){ return p_time==book.P_Tim; }
+}finder_pub_time;
+
+typedef struct finder_book_price{
+	Book_Price b_price;
+	finder_book_price(const Book_Price & price) :b_price(price){}
+	bool operator()(const Book & book){ return b_price == book.B_Pri; }
+}finder_book_price;
+//typedef struct sort_book_ID{
+//	Book_ID book_id;
+//	sort_book_ID(const Book_ID & bid) :book_id(bid){}
+//	bool operator ()(const Book & book){ return book_id < book.B_Id; }
+//}sort_book_ID;
+//
+//typedef struct sort_pub_Time{
+//	Pub_Tim pub_time;
+//	sort_pub_Time(const Pub_Tim & p_tim) :pub_time(p_tim){}
+//	bool operator()(const Book & book){ return pub_time < book.P_Tim; }
+//}sort_pub_Time;
+//
+//typedef struct sort_book_price{
+//	Book_Price price;
+//	sort_book_price(const Book_Price & b_price) :price(b_price){}
+//	bool operator()(const Book & book){ return price < book.B_Pri; }
+//}sort_book_price;
+//
+//typedef struct sort_book_pub_time{
+//	Pub_Tim p_time;
+//	sort_book_pub_time(const Pub_Tim & time) :p_time(time){}
+//	bool operator()(const Book & book){ return p_time < book.P_Tim; }
+//}sort_book_pub_time;
 
 #endif

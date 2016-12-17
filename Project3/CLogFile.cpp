@@ -62,7 +62,7 @@ bool CLogFile::Read_Info_From_File(const string & Log_File_Path){
 		return false;
 	}
 	while (getline(fin, tmp) && tmp.size() > 0)
-		Msg_Que.push(tmp);
+		Msg_Que.push_back(tmp);
 	return true;
 }
 

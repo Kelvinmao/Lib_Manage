@@ -25,7 +25,8 @@ private:
 public:
 	bool Sort_By_Book_Id(CLibrary & lib);
 	bool Sort_By_Pub_Time(CLibrary & lib);
-	bool Sort_by_Book_Price(CLibrary & lib);
+	bool Sort_By_Book_Price(CLibrary & lib);
+	bool Sort_By_Search_Freq(CLibrary & lib);
 };
 
 #endif

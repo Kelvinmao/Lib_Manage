@@ -13,34 +13,28 @@
 #include"CSort.h"
 #include"CLibrary.h"
 #include"Data_Structure.h"
-#include"Comp_Structures.h"
-
+#include"Comp_Functions.h"
 using namespace std;
 
-bool Sort_By_Id(const Book & book1, const Book & book2){
-	if (book1.B_Id < book2.B_Id)
-		return true;
-	if (book1.B_Id > book2.B_Id)
-		return false;
-	return false;
-}
-
+//2016-12-17 I solve the problem by using list<>::sort,what a fucking problem spent my two days!!!
+//And why I use std::sort will result error,is this a bug of VS!!!
 //Why the iterator should be the "rbegin" or "rend"??	Interesting......
 bool CSort::Sort_By_Book_Id(CLibrary & lib){
-	/*sort_book_ID sort_id((*lib.Library.begin()).B_Id);*/
-	std::sort(lib.Library.begin(), lib.Library.end(),Sort_By_Id);
+	lib.Library.sort(sort_by_id);
 	return true;
 }
 
-bool CSort::Sort_by_Book_Price(CLibrary & lib){
-	/*sort_book_price sort_pri((*lib.Library.begin()).B_Pri);*/
-	std::sort(lib.Library.begin(), lib.Library.end(), Sort_By_Id);
+bool CSort::Sort_By_Book_Price(CLibrary & lib){
+	lib.Library.sort(sort_by_price);
 	return true;
 }
 
 bool CSort::Sort_By_Pub_Time(CLibrary & lib){
-	/*sort_book_pub_time sort_tim((*lib.Library.begin()).P_Tim);*/
-	std::sort(lib.Library.begin(), lib.Library.end(), Sort_By_Id);
+	lib.Library.sort(sort_by_pub_time);
 	return true;
 }
 
+bool CSort::Sort_By_Search_Freq(CLibrary & lib){
+	lib.Library.sort(sort_by_sear_freq);
+	return true;
+}

@@ -6,7 +6,6 @@
 //------------------------------------------------
 #ifndef CLIBRARY_H_
 #define CLIBRARY_H_
-
 #include<iostream>
 #include<list>
 #include<string>

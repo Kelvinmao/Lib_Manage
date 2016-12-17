@@ -18,7 +18,7 @@ using namespace std;
 class CLibrary;
 class CData_Processor{
 public:
-	CData_Processor();
+	CData_Processor(){}
 	bool Constru_The_Header(const string & file_name = "Book_Info.txt");
 	/************************************************************************************/
 	//modified at 12/11,I don't think the Input_Info should be a member function of the

@@ -1,37 +1,10 @@
-﻿生成启动时间为 2016/12/16 22:44:38。
+﻿生成启动时间为 2016/12/17 23:37:38。
      1>项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”在节点 2 上(ClCompile 个目标)。
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CSort.cpp
-         CSort.cpp
-     1>d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157): error C2784: “unknown-type std::operator -(std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)”: 未能从“std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>”为“std::move_iterator<_RanIt> &”推导 模板 参数
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1969) : 参见“std::operator -”的声明
-                 c:\users\kelvin\documents\visual studio 2013\projects\project3\project3\csort.cpp(31): 参见对正在编译的函数 模板 实例化“void std::sort<std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>,bool(__cdecl *)(const Book &,const Book &)>(_RanIt,_RanIt,_Pr)”的引用
-                 with
-                 [
-                     _RanIt=std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>
-         ,            _Pr=bool (__cdecl *)(const Book &,const Book &)
-                 ]
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1969) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1969) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1969) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1969) : 参见“std::operator -”的声明
-     1>d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157): error C2784: “unknown-type std::operator -(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)”: 未能从“std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>”为“const std::reverse_iterator<_RanIt> &”推导 模板 参数
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1130) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1130) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1130) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1130) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1130) : 参见“std::operator -”的声明
-     1>d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157): error C2784: “unknown-type std::operator -(const std::_Revranit<_RanIt,_Base> &,const std::_Revranit<_RanIt2,_Base2> &)”: 未能从“std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>”为“const std::_Revranit<_RanIt,_Base> &”推导 模板 参数
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(937) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(937) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(937) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(937) : 参见“std::operator -”的声明
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(937) : 参见“std::operator -”的声明
-     1>d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157): error C2676: 二进制“-”:“std::_List_iterator<std::_List_val<std::_List_simple_types<SBook>>>”不定义该运算符或到预定义运算符可接收的类型的转换
-     1>d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157): error C2780: “void std::_Sort(_RanIt,_RanIt,_Diff,_Pr)”: 应输入 4 个参数，却提供了 3 个
-                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3121) : 参见“std::_Sort”的声明
-     1>已完成生成项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”(ClCompile 个目标)的操作 - 失败。
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CSearch_Book.cpp
+         CSearch_Book.cpp
+     1>已完成生成项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”(ClCompile 个目标)的操作。
 
-生成失败。
+生成成功。
 
-已用时间 00:00:00.40
+已用时间 00:00:00.65
