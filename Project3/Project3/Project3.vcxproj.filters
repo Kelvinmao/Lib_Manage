@@ -18,9 +18,6 @@
     <ClInclude Include="Data_Structure.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CData_Process.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -34,6 +31,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Time_struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CBook.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CData_Processor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CLogFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Comp_Structures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Comp_Functions.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,6 +62,9 @@
     <Text Include="Book_Info.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="Cache.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLibrary.cpp">
@@ -58,7 +73,19 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CData_Process.cpp">
+    <ClCompile Include="CBook.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CData_Processor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CLogFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSearch_Book.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

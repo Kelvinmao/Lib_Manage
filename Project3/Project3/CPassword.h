@@ -4,6 +4,8 @@
 //Data: 2016-12-10
 //Written By: KelvinMao
 //------------------------------------------------
+#ifndef CPASSWORD_H_
+#define CPASSWORD_H_
 
 #include <iostream>
 #include<conio.h>
@@ -55,3 +57,5 @@ public:
 		return psw;
 	}
 };
+
+#endif
