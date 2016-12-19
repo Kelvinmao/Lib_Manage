@@ -21,10 +21,23 @@ CData_Processor::CData_Processor(){
 	fout << "CData_Processer's Constructor" << endl;
 }
 
-//This method is wasted,so ignore it!
-//bool CData_Processor::Input_Info(Book & book){
-//	
-//}
+bool CData_Processor::Input_Info(Book & book){
+	//input the info of a struct book
+	cout << "请输入书目编号" << endl;
+	cin >> book.B_Id;
+	cin.get();
+	cout << "请输入作者名" << endl;
+	getline(cin,book.A_Name);
+	cout << "请输入书名"<<endl;
+	getline(cin, book.B_Tit);
+	cout << "请输入分类号" << endl;
+	getline(cin, book.C_Id);
+	cout << "请输入出版社名称" << endl;
+	getline(cin, book.P_Dep);
+	cout << "请输入本书价格" << endl;
+	cin >> book.B_Pri;
+	return true;
+}
 
 bool CData_Processor::Constru_The_Header(const string & file_name){
 	ofstream fout(file_name);
@@ -42,21 +55,11 @@ bool CData_Processor::Constru_The_Header(const string & file_name){
 }
 
 //Save the struct book into the file,and the default file path has already confirmed
-bool CData_Processor::Save_Info_To_File(list<Book> & ls,const string & File_Path){
+bool CData_Processor::Save_Info_To_File(const list<Book> & Book_list,const string & File_Path){
 	ofstream fout(File_Path,ios_base::app);
 	if (!fout.is_open()){
 		cout << "无法找到图书信息文件，请检查路径后重试" << endl;
 		return false;
 	}
-	//Attention!!  The itearator here ought to be the const_itearator.
-	list<Book>::const_iterator pos;
-	for (pos = ls.begin(); pos != ls.end(); ++pos){
-		fout << (*pos).B_Id << "      ";
-		fout << (*pos).B_Tit << "      ";
-		fout << (*pos).A_Name << "      ";
-		fout << (*pos).C_Id << "      ";
-		fout << (*pos).P_Dep << "      ";
-		fout << (*pos).B_Pri << "      " << endl;
-	}
-	return true;
+	
 }

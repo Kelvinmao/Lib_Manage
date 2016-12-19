@@ -42,10 +42,10 @@
     <ClInclude Include="CLogFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Comp_Structures.h">
+    <ClInclude Include="Comp_Functions.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Comp_Functions.h">
+    <ClInclude Include="Finder_Structures.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,6 +60,9 @@
       <Filter>资源文件</Filter>
     </Text>
     <Text Include="Book_Info.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="Cache.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>

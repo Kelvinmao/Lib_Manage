@@ -7,14 +7,16 @@
 
 #include<algorithm>
 #include<iostream>
+#include<sstream>
 #include<fstream>
 #include<string>
 #include<vector>
 #include<list>
+#include"Finder_Structures.h"
 #include"Data_Structure.h"
-#include"Comp_Structures.h"
 #include"CSearch_Book.h"
 #include"CLibrary.h"
+#include"CSort.h"
 using namespace std;
 
 bool CSearch_Book::Search_By_Title(const CLibrary & lib,const string & title){
@@ -160,10 +162,73 @@ bool CSearch_Book::Search_By_book_Price(const CLibrary & lib, const Book_Price &
 	return true;
 }
 
-bool CSearch_Book::Add_Book_Into_Cache(const CLibrary & lib){
+ofstream & operator <<(ofstream & fout,const Book & book){
+	fout << book.A_Name << " " << book.B_Id << " " << book.B_Pri << " " << book.B_Tit << " ";
+	fout << book.C_Id << " " << book.P_Dep << " " << book.P_Tim << " " << endl;
+	return fout;
+}
+
+bool CSearch_Book::Add_Book_Into_Cache(CLibrary & lib){
 	if (lib.Library.empty())
 		return false;
 	else{
-		return true;
+		CSort c_sort;
+		c_sort.Sort_By_Search_Freq(lib);
+		list<Book>::const_iterator pos = lib.Library.begin();
+		for (pos; pos != lib.Library.end(); ++pos){
+			int count = 0;
+			if (count < cache_Max)
+				Cache.push_back((*pos));
+			else
+				break;
+			++count;
+		}
 	}
+	return true;
+}
+
+bool CSearch_Book::Set_Max_Cache(){
+	cout << "请输入最大缓存数量(小于100)" << endl;
+	cin >> cache_Max;
+	while (cache_Max>100){
+		cout << "输入数值过大，请重新输入" << endl;
+		cin >> cache_Max;
+	}
+	return true;
+}
+
+bool CSearch_Book::Read_From_Cache_File(){
+	ifstream fin("Cache.txt",ios_base::in);
+	if (!fin.is_open()){
+		cout << "缓存文件打开失败" << endl;
+		return false;
+	}
+	else{
+		if (fin.peek() == EOF) return false;//The cache file is empty.
+		else{
+			//此处需要先确定缓存写入格式后，再来填这个坑
+			Book * tmp = new Book;
+			string str_tmp;
+			string item;
+			getline(fin, str_tmp);
+			istringstream in(str_tmp);
+			for (in >> item;)
+			return true;
+		}
+	}
+	return true;
+}
+
+bool CSearch_Book::Write_Cache_Into_File(){
+	ofstream fout("Cache.txt", ios_base::app);
+	if (!fout.is_open()){
+		cout << "缓存文件打开失败" << endl;
+		return false;
+	}
+	else{
+		vector<Book>::iterator pos = Cache.begin();
+		for (pos; pos != Cache.end(); pos++)
+			fout << (*pos);
+	}
+	return true;
 }

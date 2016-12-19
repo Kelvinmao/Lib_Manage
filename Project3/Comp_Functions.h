@@ -1,5 +1,5 @@
 //------------------------------------------------
-//Title: Comp_Structures.h
+//Title: Comp_Functions.h
 //Type: Header file
 //Data: 2016-12-17
 //Written By: KelvinMao
@@ -33,9 +33,9 @@ bool sort_by_pub_time(const Book & book1, const Book & book2){
 }
 
 bool sort_by_sear_freq(const Book & book1, const Book & book2){
-	if (book1.S_Freq < book2.S_Freq)
-		return true;
 	if (book1.S_Freq > book2.S_Freq)
+		return true;
+	if (book1.S_Freq < book2.S_Freq)
 		return false;
 	return false;
 }

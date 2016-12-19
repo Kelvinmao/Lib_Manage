@@ -49,7 +49,6 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -67,33 +66,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Comp_Functions.h" />
-    <ClInclude Include="Comp_Structures.h" />
-    <ClInclude Include="CLogFile.h" />
     <ClInclude Include="CSearch_Book.h" />
     <ClInclude Include="Data_Structure.h" />
-    <ClInclude Include="CData_Processor.h" />
+    <ClInclude Include="CData_Process.h" />
     <ClInclude Include="CSort.h" />
     <ClInclude Include="CLibrary.h" />
     <ClInclude Include="CPassword.h" />
     <ClInclude Include="Time_struct.h" />
-    <ClInclude Include="CBook.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Book_Info.txt" />
-    <Text Include="Cache.txt" />
     <Text Include="Lib_Info.txt" />
     <Text Include="extern_Info.txt" />
     <Text Include="log.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CBook.cpp" />
     <ClCompile Include="CLibrary.cpp" />
-    <ClCompile Include="CLogFile.cpp" />
-    <ClCompile Include="CSearch_Book.cpp" />
-    <ClCompile Include="CSort.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="CData_Processor.cpp" />
+    <ClCompile Include="CData_Process.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

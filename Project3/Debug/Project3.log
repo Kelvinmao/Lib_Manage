@@ -1,4 +1,4 @@
-﻿生成启动时间为 2016/12/17 23:37:38。
+﻿生成启动时间为 2016/12/18 23:37:38。
      1>项目“C:\Users\Kelvin\documents\visual studio 2013\Projects\Project3\Project3\Project3.vcxproj”在节点 2 上(ClCompile 个目标)。
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CSearch_Book.cpp
@@ -7,4 +7,4 @@
 
 生成成功。
 
-已用时间 00:00:00.65
+已用时间 00:00:00.74

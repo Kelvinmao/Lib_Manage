@@ -54,8 +54,9 @@ bool CLibrary::Set_And_Save_Info(){
 		fout << admin_Name << endl;
 		fout << admin_Pass << endl;
 		fout.close();
+		system("pause");
+		return true;
 	}
-	return true;
 }
 
 bool CLibrary::Load_Info(const string & file_Path){

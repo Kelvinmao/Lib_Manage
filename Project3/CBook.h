@@ -21,7 +21,7 @@ class CBook{
 	friend class CData_Processor;
 private:
 	Book * m_pBook;
-	int book_num;
+	int book_num;//一次加入的书的数目
 public:
 	//constructor used to new a struct Book
 	explicit CBook(int & book_Num);

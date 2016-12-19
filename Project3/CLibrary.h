@@ -7,13 +7,14 @@
 #ifndef CLIBRARY_H_
 #define CLIBRARY_H_
 #include<iostream>
-#include<list>
 #include<string>
+#include<list>
+#include"CData_Processor.h"
 #include"Data_Structure.h"
+#include"CSearch_Book.h"
+#include"CReader.h"
 #include"CBook.h"
 #include"CSort.h"
-#include"CSearch_Book.h"
-#include"CData_Processor.h"
 using namespace std;
 
 //*************************************
@@ -23,12 +24,14 @@ using namespace std;
 /*CData_Process is same as CBook,so is CSort and CSearch_Book*/
 //*************************************
 class CData_Processor;
+class CSearch_Book;
+class CReader;
 class CBook;
 class CSort;
-class CSearch_Book;
 class CLibrary{
 	friend class CBook;
 	friend class CSort;
+	friend class CReader;
 	friend class CSearch_Book;
 	friend class CData_Processor;
 private:
