@@ -19,6 +19,7 @@
 #include"CSort.h"
 using namespace std;
 
+
 bool CSearch_Book::Search_By_Title(const CLibrary & lib,const string & title){
 	if (lib.classify_Tree[0]->empty()){
 		cout << "待查询序列为空" << endl;
@@ -32,9 +33,11 @@ bool CSearch_Book::Search_By_Title(const CLibrary & lib,const string & title){
 		//After be searched,its freq should be refresh 
 		(*fir_Pos).S_Freq++;
 		result.push_back((*fir_Pos));
+		iter_Vec.push_back(fir_Pos);
 		pMove = (*fir_Pos).pNext_Book;
 		while (pMove){
 			result.push_back((*pMove));
+			ptr_Vec.push_back(pMove);//Push the ptr of the book in the Tree's brqnch
 			pMove->S_Freq++;
 			pMove = pMove->pNext_Book;
 		}
@@ -53,10 +56,12 @@ bool CSearch_Book::Search_By_Auth_Name(const CLibrary & lib,const string & auth_
 		Book * pMove = nullptr;
 		fir_Pos = find_if(lib.classify_Tree[1]->begin(), lib.classify_Tree[1]->end(), tar_Auth_Name);
 		result.push_back((*fir_Pos));
+		iter_Vec.push_back(fir_Pos);
 		(*fir_Pos).S_Freq++;
 		pMove = (*fir_Pos).pNext_Book;
 		while (pMove){
 			result.push_back((*pMove));
+			ptr_Vec.push_back(pMove);
 			pMove->S_Freq++;
 			pMove = pMove->pNext_Book;
 		}
@@ -75,11 +80,13 @@ bool CSearch_Book::Search_By_CId(const CLibrary & lib, const string & c_ID){
 		Book * pMove = nullptr;
 		fir_Pos = find_if(lib.classify_Tree[2]->begin(), lib.classify_Tree[2]->end(), tar_CID);
 		result.push_back((*fir_Pos));
+		iter_Vec.push_back(fir_Pos);
 		(*fir_Pos).S_Freq++;
 		pMove = (*fir_Pos).pNext_Book;
 		while (pMove){
 			pMove->S_Freq++;
 			result.push_back((*pMove));
+			ptr_Vec.push_back(pMove);
 			pMove = pMove->pNext_Book;
 		}
 	}
@@ -98,9 +105,11 @@ bool CSearch_Book::Search_By_Pub_Dep(const CLibrary & lib, const string & pub_De
 		fir_Pos = find_if(lib.classify_Tree[3]->begin(), lib.classify_Tree[3]->end(), tar_Pub_Dep);
 		result.push_back((*fir_Pos));
 		(*fir_Pos).S_Freq++;
+		iter_Vec.push_back(fir_Pos);
 		pMove = (*fir_Pos).pNext_Book;
 		while (pMove){
 			result.push_back((*pMove));
+			ptr_Vec.push_back(pMove);
 			pMove->S_Freq++;
 			pMove = pMove->pNext_Book;
 		}
@@ -110,17 +119,21 @@ bool CSearch_Book::Search_By_Pub_Dep(const CLibrary & lib, const string & pub_De
 
 //这个方法需要改一下
 
-bool CSearch_Book::Search_By_Book_Id(const CLibrary & lib, const Book_ID & bid){
+bool CSearch_Book::Search_By_Book_Id(CLibrary & lib, const Book_ID & bid){
 	if (lib.Library.empty()){
 		cout << "待查询序列为空" << endl;
 		return false;
 	}
 	else{
-		list<Book>::const_iterator fir_pos;
+		list<Book>::iterator fir_pos;
 		finder_book_id b_id(bid);
 		fir_pos=find_if(lib.Library.begin(),lib.Library.end(),b_id);
-		/*(*fir_pos).S_Freq++;*/
+		/*list<Book>::iterator tmp = lib.Library.begin();
+		advance(tmp, distance<list<Book>::const_iterator>(tmp, fir_pos));*/
+		/*tmp->S_Freq++;*/
+		fir_pos->S_Freq++;
 		result.push_back((*fir_pos));
+		iter_Vec.push_back(fir_pos);
 	}
 	return true;
 }
@@ -197,27 +210,27 @@ bool CSearch_Book::Set_Max_Cache(){
 	return true;
 }
 
-bool CSearch_Book::Read_From_Cache_File(){
-	ifstream fin("Cache.txt",ios_base::in);
-	if (!fin.is_open()){
-		cout << "缓存文件打开失败" << endl;
-		return false;
-	}
-	else{
-		if (fin.peek() == EOF) return false;//The cache file is empty.
-		else{
-			//此处需要先确定缓存写入格式后，再来填这个坑
-			Book * tmp = new Book;
-			string str_tmp;
-			string item;
-			getline(fin, str_tmp);
-			istringstream in(str_tmp);
-			for (in >> item;)
-			return true;
-		}
-	}
-	return true;
-}
+//bool CSearch_Book::Read_From_Cache_File(){
+//	ifstream fin("Cache.txt",ios_base::in);
+//	if (!fin.is_open()){
+//		cout << "缓存文件打开失败" << endl;
+//		return false;
+//	}
+//	else{
+//		if (fin.peek() == EOF) return false;//The cache file is empty.
+//		else{
+//			//此处需要先确定缓存写入格式后，再来填这个坑
+//			Book * tmp = new Book;
+//			string str_tmp;
+//			string item;
+//			getline(fin, str_tmp);
+//			istringstream in(str_tmp);
+//			for (in >> item;)
+//			return true;
+//		}
+//	}
+//	return true;
+//}
 
 bool CSearch_Book::Write_Cache_Into_File(){
 	ofstream fout("Cache.txt", ios_base::app);
@@ -229,6 +242,18 @@ bool CSearch_Book::Write_Cache_Into_File(){
 		vector<Book>::iterator pos = Cache.begin();
 		for (pos; pos != Cache.end(); pos++)
 			fout << (*pos);
+	}
+	return true;
+}
+
+bool CSearch_Book::Show_Search_Result(){
+	vector<Book>::const_iterator pos = result.cbegin();
+	for (pos; pos != result.cend(); ++pos){
+		cout << pos->B_Tit << "   " << pos->A_Name << "   " << pos->P_Dep;
+		if (pos->isBorrow)
+			cout << "已借出"<<endl;
+		else
+			cout << "可借閱"<<endl;
 	}
 	return true;
 }

@@ -24,10 +24,18 @@ private:
 public:
 	CReader(const string & name, const string & comm, const string & phone) :r_Name(name), comm_Addr(comm), phone_Num(phone){}
 	bool get_Book_From_Result(const CSearch_Book & sear_Book);//Get book from CSearch_Book::result
-	bool borrow_Book_By_Title(CLibrary & lib, const CSearch_Book & sear_Book, const Book_Title & book_Tit);//reader use this interface to borrow a book,by offering the book title
-	bool borrow_Book_By_bID(CLibrary & lib, const CSearch_Book & sear_Book, const Book_ID & bid);//reader use this interface to borrow a book,by offering the book id
-	bool borrow_Book_By_Auth(CLibrary & lib, const CSearch_Book & sear_Book, const Auth_Name & a_name);//reader use this interface to borrow a book,by offering the auth_name
-	bool borrow_Book_By_Pub_Time(CLibrary & lib, const CSearch_Book & sear_Book, const Pub_Tim & p_time);//reader use this interface to borrow a book,by offering the pub_time
+	/*These following functions borrow book from the Classify Tree,so I process this procedure carefully
+	//so the code has so many "if-else"
+	*/
+	/************************************************************************************************************************************************************************************/
+	bool borrow_Book_By_Title(CLibrary & lib, CSearch_Book & sear_Book, const Book_Title & book_Tit,const int & order_id);//reader use this interface to borrow a book,by offering the book title
+	bool borrow_Book_By_cID(CLibrary & lib, CSearch_Book & sear_Book, const Classify_ID & cid, const int & order_id);//reader use this interface to borrow a book,by offering the classify id
+	bool borrow_Book_By_Auth(CLibrary & lib, CSearch_Book & sear_Book, const Auth_Name & a_name, const int & order_id);//reader use this interface to borrow a book,by offering the auth_name
+	bool borrow_Book_By_pub_Dep(CLibrary & lib, CSearch_Book & sear_Book, const Pub_Dep & p_dep, const int & order_id);//reader use this interface to borrow a book,by offering the publish department
+	/************************************************************************************************************************************************************************************/
+	bool borrow_Book_By_bID(CLibrary & lib, CSearch_Book & sear_Book, const Book_ID & bid, const int & order_id);//reader use this interface to borrow a book,by offering the book id
+	//"bool borrow_Book_By_Pub_Time" seems useless
+	//bool borrow_Book_By_Pub_Time(CLibrary & lib, CSearch_Book & sear_Book, const Pub_Tim & p_time, const int & order_id);//reader use this interface to borrow a book,by offering the pub_time
 	bool renew_Book(const Book & book);//~to renew a book
 	/*If now no book available,when this book is available in the future,
 	//give a massage or email to reader that this book is available

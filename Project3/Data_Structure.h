@@ -27,9 +27,23 @@ using namespace std;
 #define Pub_Comm_Add string //the method you can connect with the publish department
 #define Sear_Freq int //the search frequency of a book
 #define Surplus int//the residue of a book
+#define Status bool//The status of a book
 
 //Defination of Book
 struct SBook{
+	SBook(
+		Surplus sur,
+		Sear_Freq freq,
+		Book_ID bid,
+		Book_Title tit,
+		Auth_Name name,
+		Classify_ID cid,
+		Pub_Dep pub,
+		Book_Price price,
+		Pub_Tim time,
+		Status state=false,
+		SBook * pt = nullptr
+		) :B_surplus(sur), S_Freq(freq), B_Id(bid), B_Tit(tit), A_Name(name), C_Id(cid), P_Dep(pub), B_Pri(price), P_Tim(time), isBorrow(state), pNext_Book(pt){}
 	bool operator <(const SBook & book){ return B_surplus < book.B_surplus; }
 	SBook * pNext_Book;//Book结构中加一个指针域，把具有相同属性的书串成链表
 	Surplus B_surplus;//剩余量
@@ -41,6 +55,7 @@ struct SBook{
 	Pub_Dep P_Dep; //(出版社名)
 	Book_Price B_Pri; //(价格)
 	Pub_Tim P_Tim;//(出版日期)
+	Status isBorrow;//（是否被借阅）
 };
 
 typedef struct SBook Book;

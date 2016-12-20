@@ -48,6 +48,9 @@
     <ClInclude Include="Finder_Structures.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Lib_Info.txt">
@@ -86,6 +89,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CSearch_Book.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CReader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

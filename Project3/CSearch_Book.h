@@ -21,6 +21,8 @@ private:
 	int cache_Max;//The max amount of the element in the cache
 	vector<Book> Cache;//To restore high-freq searching element(将高频查找的书籍进行缓存)
 	vector<Book> result;//return the result of searching
+	vector<list<Book>::iterator> iter_Vec;//The vector contains the iterator of the book in the CLibrary::Library.
+	vector<Book *> ptr_Vec;//The vector contains the pointer of the book in the classyfy tree.
 public:
 	CSearch_Book(){};
 	//*******************************************************************************************
@@ -30,7 +32,7 @@ public:
 	bool Search_By_Auth_Name(const CLibrary & lib,const string & auth_Name);
 	bool Search_By_Pub_Dep(const CLibrary & lib,const string & pub_Dep);
 	bool Search_By_CId(const CLibrary & lib,const string & c_ID);
-	bool Search_By_Book_Id(const CLibrary & lib,const Book_ID & book_ID);
+	bool Search_By_Book_Id(CLibrary & lib,const Book_ID & book_ID);
 	//*******************************************************************************************
 	//These methods,when 'time' or 'price' and etc occurs in the signature,should give chances of 
 	//choosing the low_bound and high_bound
@@ -42,6 +44,7 @@ public:
 	bool Set_Max_Cache();//Set the max amount of elements in the cache.
 	bool Read_From_Cache_File();
 	bool Write_Cache_Into_File();
+	bool Show_Search_Result();
 	friend ofstream & operator <<(ofstream & fout,const Book & book);
 };
 
