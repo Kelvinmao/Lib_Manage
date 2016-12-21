@@ -23,7 +23,6 @@ private:
 	list<Book> borrowed_Book;//A list contains a reader's all borrowed book
 public:
 	CReader(const string & name, const string & comm, const string & phone) :r_Name(name), comm_Addr(comm), phone_Num(phone){}
-	bool get_Book_From_Result(const CSearch_Book & sear_Book);//Get book from CSearch_Book::result
 	/*These following functions borrow book from the Classify Tree,so I process this procedure carefully
 	//so the code has so many "if-else"
 	*/
@@ -36,10 +35,17 @@ public:
 	bool borrow_Book_By_bID(CLibrary & lib, CSearch_Book & sear_Book, const Book_ID & bid, const int & order_id);//reader use this interface to borrow a book,by offering the book id
 	//"bool borrow_Book_By_Pub_Time" seems useless
 	//bool borrow_Book_By_Pub_Time(CLibrary & lib, CSearch_Book & sear_Book, const Pub_Tim & p_time, const int & order_id);//reader use this interface to borrow a book,by offering the pub_time
-	bool renew_Book(const Book & book);//~to renew a book
+	bool renew_Book(Book & book);//~to renew a book
 	/*If now no book available,when this book is available in the future,
 	//give a massage or email to reader that this book is available
 	*/
+	bool give_Back_Book(CSearch_Book & sear_Book,const Book_ID & bid);
+	bool show_All_Borrowed_Books();
+	bool notice_The_Dead_Line();
+	bool write_Info_Into_File();
+	bool read_Info_From_File();
+	bool read_Names_From_File(CLibrary & lib);
+	bool write_Reader_Name_Into_File();
 	bool book_Info_Mailed_To_Reader();
 	bool book_Info_Messageed_To_Reader();
 };

@@ -36,6 +36,8 @@ bool CBook::Input_Info(){
 		cin >> m_pBook[index].B_Pri;
 		cout << "请输入" << "第" << index + 1 << "本书的出版日期" << endl;
 		cin >> m_pBook[index].P_Tim;
+		cout << "请输入" << "第" << index + 1 << "本书的最长借阅时间" << endl;
+		cin >> m_pBook[index].b_Time;
 	}
 	return true;
 }

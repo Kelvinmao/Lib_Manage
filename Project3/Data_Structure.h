@@ -28,9 +28,11 @@ using namespace std;
 #define Sear_Freq int //the search frequency of a book
 #define Surplus int//the residue of a book
 #define Status bool//The status of a book
+#define Bor_Tim int//The longest time of a book can be borrowed
 
 //Defination of Book
 struct SBook{
+	SBook(){}
 	SBook(
 		Surplus sur,
 		Sear_Freq freq,
@@ -41,9 +43,10 @@ struct SBook{
 		Pub_Dep pub,
 		Book_Price price,
 		Pub_Tim time,
+		Bor_Tim btime=0,
 		Status state=false,
 		SBook * pt = nullptr
-		) :B_surplus(sur), S_Freq(freq), B_Id(bid), B_Tit(tit), A_Name(name), C_Id(cid), P_Dep(pub), B_Pri(price), P_Tim(time), isBorrow(state), pNext_Book(pt){}
+		) :B_surplus(sur), S_Freq(freq), B_Id(bid), B_Tit(tit), A_Name(name), C_Id(cid), P_Dep(pub), B_Pri(price), P_Tim(time), isBorrow(state), b_Time(btime),pNext_Book(pt){}
 	bool operator <(const SBook & book){ return B_surplus < book.B_surplus; }
 	SBook * pNext_Book;//Book结构中加一个指针域，把具有相同属性的书串成链表
 	Surplus B_surplus;//剩余量
@@ -56,6 +59,7 @@ struct SBook{
 	Book_Price B_Pri; //(价格)
 	Pub_Tim P_Tim;//(出版日期)
 	Status isBorrow;//（是否被借阅）
+	Bor_Tim b_Time;//最长借阅时间
 };
 
 typedef struct SBook Book;

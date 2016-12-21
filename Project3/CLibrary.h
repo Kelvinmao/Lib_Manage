@@ -38,6 +38,7 @@ private:
 	list<Book> Library;
 	const string default_Path;//the default path of the configuration file
 	Classify_Tree classify_Tree;
+	vector<string> reader_Names;//This vector contains all the reader's name
 public:
 	CLibrary();
 	bool Set_And_Save_Info(); //To Input the info of the library,like name,date and etc.

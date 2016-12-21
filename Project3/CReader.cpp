@@ -6,6 +6,7 @@
 //------------------------------------------------
 
 #include<iostream>
+#include<fstream>
 #include<vector>
 #include<list>
 #include"Finder_Structures.h"
@@ -226,27 +227,119 @@ bool CReader::borrow_Book_By_bID(CLibrary & lib,CSearch_Book & sear_Book, const 
 	return false;
 }
 
-bool CReader::borrow_Book_By_Pub_Time(CLibrary & lib, CSearch_Book & sear_Book, const Pub_Tim & p_time){
-	vector<Book>::const_iterator pos;
-	vector<Book>::iterator tmp = sear_Book.result.begin();
-	advance(tmp, distance <vector<Book>::const_iterator>(tmp, pos));
-	finder_pub_time pub_time(p_time);
-	pos = find_if(sear_Book.result.begin(), sear_Book.result.end(), pub_time);
-	if (pos == sear_Book.result.end()){
-		cout << "查询结果中不存在您指定的出版日期，请检查后重新输入" << endl;
-		return false;
-	}
-	else{
-		if (tmp->isBorrow){
-			cout << "此书已被借阅，无法重复借阅" << endl;
-			return false;
-		}
-		else{
-			tmp->isBorrow = true;
-			cout << "借阅成功，请注意归还日期" << endl;
+//bool CReader::borrow_Book_By_Pub_Time(CLibrary & lib, CSearch_Book & sear_Book, const Pub_Tim & p_time){
+//	vector<Book>::const_iterator pos;
+//	vector<Book>::iterator tmp = sear_Book.result.begin();
+//	advance(tmp, distance <vector<Book>::const_iterator>(tmp, pos));
+//	finder_pub_time pub_time(p_time);
+//	pos = find_if(sear_Book.result.begin(), sear_Book.result.end(), pub_time);
+//	if (pos == sear_Book.result.end()){
+//		cout << "查询结果中不存在您指定的出版日期，请检查后重新输入" << endl;
+//		return false;
+//	}
+//	else{
+//		if (tmp->isBorrow){
+//			cout << "此书已被借阅，无法重复借阅" << endl;
+//			return false;
+//		}
+//		else{
+//			tmp->isBorrow = true;
+//			cout << "借阅成功，请注意归还日期" << endl;
+//			return true;
+//		}
+//	}
+//	return false;
+//}
+//
+
+bool CReader::give_Back_Book(CSearch_Book & sear_Book, const Book_ID & bid){
+	vector<list<Book>::iterator>::iterator i_pos=sear_Book.iter_Vec.begin();
+	vector<Book *>::iterator p_pos=sear_Book.ptr_Vec.begin();
+	for (i_pos; i_pos != sear_Book.iter_Vec.end(); ++i_pos){
+		if (bid == (*i_pos)->B_Id && (*i_pos)->isBorrow){
+			(*i_pos)->isBorrow = false;
+			cout << "归还成功" << endl;
 			return true;
 		}
+	}
+	for (p_pos; p_pos != sear_Book.ptr_Vec.end(); ++p_pos){
+		if (bid == (*p_pos)->B_Id && (*p_pos)->isBorrow){
+			(*p_pos)->isBorrow = false;
+			cout << "归还成功" << endl;
+			return true;
+		}
+	}
+	if (i_pos == sear_Book.iter_Vec.end() && p_pos == sear_Book.ptr_Vec.end()){
+		cout << "图书编号有误，请检查您的输入信息" << endl;
+		return false;
 	}
 	return false;
 }
 
+bool CReader::show_All_Borrowed_Books(){
+	list<Book>::const_iterator pos = borrowed_Book.cbegin();
+	cout << "您一共借阅了" << borrowed_Book.size() << "本书" << endl;
+	for (pos; pos != borrowed_Book.cend(); ++pos){
+		cout << pos->B_Tit << "   " << pos->A_Name << "    " << pos->P_Dep << "    ";
+		cout << "热度" << pos->S_Freq << endl;
+	}
+	return true;
+}
+
+bool CReader::write_Reader_Name_Into_File(){
+	ofstream fout("all_Names.txt", ios_base::app);
+	if (fout.is_open()){
+		cout << "打开文件失败,请重试" << endl;
+		return false;
+	}
+	else
+		fout << r_Name << endl;
+	return true;
+}
+
+bool CReader::write_Info_Into_File(){
+	ofstream fout(r_Name,ios_base::app);
+	if (!fout.is_open()){
+		cout << "创建文件失败,请重试" << endl;
+		return false;
+	}
+	else{
+		fout << r_Name << endl << comm_Addr << endl << phone_Num << endl;
+		for (auto pos = borrowed_Book.begin(); pos != borrowed_Book.end(); ++pos){
+			fout << pos->B_Id<<" ";
+		}
+		fout << endl;
+	}
+	return true;
+}
+
+bool CReader::read_Names_From_File(CLibrary & lib){
+	ifstream fin("all_Names.txt", ios_base::in);
+	if (!fin.is_open()){
+		cout << "打开文件失败，请重试" << endl;
+		return false;
+	}
+	else{
+		string tmp;
+		while (!fin.eof()){
+			getline(fin, tmp);
+			lib.reader_Names.push_back(tmp);
+		}
+	}
+	return true;
+}
+
+bool CReader::read_Info_From_File(){
+	ifstream fin(r_Name, ios_base::in);
+	if (!fin.is_open()){
+		cout << "打开文件失败，请重试" << endl;
+		return false;
+	}
+	else{
+		
+	}
+}
+
+bool CReader::renew_Book(Book & book){
+	return true;
+}
