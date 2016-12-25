@@ -51,6 +51,9 @@
     <ClInclude Include="CReader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CLogIn_Out.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Lib_Info.txt">
@@ -66,6 +69,9 @@
       <Filter>资源文件</Filter>
     </Text>
     <Text Include="Cache.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="all_Readers.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>
@@ -92,6 +98,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CLogIn_Out.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

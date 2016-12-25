@@ -25,10 +25,10 @@ public:
 	void inputPassword()//用于输入并回显*为密码
 	{
 		char temp_c;
-		cout << "please input password:";
+		cout << "请输入密码:";
 		while (true)
 		{
-			temp_c = getch();  //输入一个字符
+			temp_c = getchar();  //输入一个字符
 			if (temp_c != char(13))  //判断该字符是不为回车，如果是则退出while
 			{
 				switch (temp_c)

@@ -1,0 +1,22 @@
+cout << "请输入您需要的借阅方式" << endl;
+		cout << "================================借阅方式====================================" << endl;
+		cout << "                              1.使用书目编号借阅" << endl;
+		cout << "                              2.使用标题借阅" << endl;
+		cout << "                              3.使用作者借阅" << endl;
+		cout << "                              4.使用出版社借阅" << endl;
+		cout << "                              5.使用分类号借阅" << endl;
+		cout << "                              6.使用出版时间范围进行借阅" << endl;
+		cout << "                              7.使用价格范围进行借阅" << endl;
+		cout << "请做出选择：" << endl;
+		int borrow_method = 0;
+		cin >> borrow_method;
+		switch (borrow_method){
+		case 1:{
+			cout << "您选择的是按书目编号借阅" << endl;
+			cout << "请输入您需要借阅的书目编号" << endl;
+			Book_ID bid;
+			cin >> bid;
+			reader.borrow_Book_By_bID(lib, searcher, bid);
+			break;
+		}
+		}

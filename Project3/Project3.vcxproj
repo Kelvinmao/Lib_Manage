@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CLogIn_Out.h" />
     <ClInclude Include="Comp_Functions.h" />
     <ClInclude Include="CReader.h" />
     <ClInclude Include="Finder_Structures.h" />
@@ -81,6 +82,7 @@
     <ClInclude Include="CBook.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="all_Readers.txt" />
     <Text Include="Book_Info.txt" />
     <Text Include="Cache.txt" />
     <Text Include="Lib_Info.txt" />
@@ -91,6 +93,7 @@
     <ClCompile Include="CBook.cpp" />
     <ClCompile Include="CLibrary.cpp" />
     <ClCompile Include="CLogFile.cpp" />
+    <ClCompile Include="CLogIn_Out.cpp" />
     <ClCompile Include="CReader.cpp" />
     <ClCompile Include="CSearch_Book.cpp" />
     <ClCompile Include="CSort.cpp" />

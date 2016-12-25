@@ -32,13 +32,19 @@ class CLibrary{
 	friend class CBook;
 	friend class CSort;
 	friend class CReader;
+	friend class CLogin_Out;
 	friend class CSearch_Book;
 	friend class CData_Processor;
 private:
 	list<Book> Library;
 	const string default_Path;//the default path of the configuration file
+	list<Book> Tit_Branch;
+	list<Book> Auth_Branch;
+	list<Book> cID_Branch;
+	list<Book> Pub_Dep_Branch;
 	Classify_Tree classify_Tree;
 	vector<string> reader_Names;//This vector contains all the reader's name
+	vector<CReader> readers_Vec;
 public:
 	CLibrary();
 	bool Set_And_Save_Info(); //To Input the info of the library,like name,date and etc.
@@ -47,6 +53,7 @@ public:
 	bool Change_Info();//Change the info
 	bool Show_Info_From_File();
 	/*bool Change_Path(const string & usr_Path_Name);*///Change the default path of the configuration file
+	bool Load_Book_From_File();
 };
 
 #endif

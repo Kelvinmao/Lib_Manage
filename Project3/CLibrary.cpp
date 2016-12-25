@@ -7,6 +7,7 @@
 
 #include<iostream>
 #include<fstream>
+#include<sstream>
 #include<string>
 #include"CLibrary.h"
 using namespace std;
@@ -120,12 +121,43 @@ bool CLibrary::Show_Info_From_File(){
 	return true;
 }
 
-//****************************************************************
-//这个方法让我再斟酌一下要不要加，配置文件的存储位置可以由用户指定似乎有些不妥
-//bool CLibrary::Change_Path(const string & usr_File_Path){
-//	if (usr_File_Path.empty()){
-//		cout << "路径不能为空，请重新输入" << endl;
-//	}
-//	
-//}
-//****************************************************************
+bool CLibrary::Load_Book_From_File(){
+	ifstream fin("Book_Info.txt", ios_base::in);
+	//考虑到一次把所有书读进一个大数组会造成崩溃，所以开一个100个string的数组循环写入，既保障了效率，也使程序不会崩溃
+	string tmp[100];
+	if (!fin.is_open()){
+		cout << "无法打开图书信息文件" << endl;
+		return false;
+	}
+	else{
+		int count = 0;//计数变量，用于舍弃表头
+		while (getline(fin, tmp[count%100]) && tmp[count%100].size() > 0){
+				istringstream str(tmp[count % 100]);
+				string tmp[8];
+				int i = 0;
+				for (string item; str >> item; i++)
+					tmp[i] = item;
+				Book * new_Book = new Book;
+				new_Book->B_Id = stoi(tmp[0]);
+				new_Book->B_Tit = tmp[1];
+				new_Book->A_Name = tmp[2];
+				new_Book->C_Id = tmp[3];
+				new_Book->P_Dep = tmp[4];
+				new_Book->B_Pri = stof(tmp[5]);
+				new_Book->P_Tim = tmp[6];
+				new_Book->b_Time = 30;
+				new_Book->isBorrow = false;
+				new_Book->B_surplus = 1;
+				new_Book->isBorrow = (bool)(stoi(tmp[7]));
+				Library.push_back((*new_Book));
+				delete new_Book;
+				count++;
+		}
+		fin.close();
+		//test
+		/*for (auto pos = Library.begin(); pos != Library.end(); ++pos){
+			cout << pos->A_Name << endl << pos->B_Id << endl << pos->C_Id << endl << pos->P_Dep << endl << pos->B_Pri << endl;
+		}*/
+	}
+	return true;
+}

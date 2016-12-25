@@ -28,10 +28,10 @@ public:
 	//*******************************************************************************************
 	//Title,Auth_name,Pub_Dep,CId,Book_Id can be search in the classify_Tree,to prove performance
 	//*******************************************************************************************
-	bool Search_By_Title(const CLibrary & lib,const string & title);
-	bool Search_By_Auth_Name(const CLibrary & lib,const string & auth_Name);
-	bool Search_By_Pub_Dep(const CLibrary & lib,const string & pub_Dep);
-	bool Search_By_CId(const CLibrary & lib,const string & c_ID);
+	bool Search_By_Title(CLibrary & lib,const string & title);
+	bool Search_By_Auth_Name(CLibrary & lib,const string & auth_Name);
+	bool Search_By_Pub_Dep(CLibrary & lib,const string & pub_Dep);
+	bool Search_By_CId(CLibrary & lib,const string & c_ID);
 	bool Search_By_Book_Id(CLibrary & lib,const Book_ID & book_ID);
 	//*******************************************************************************************
 	//These methods,when 'time' or 'price' and etc occurs in the signature,should give chances of 

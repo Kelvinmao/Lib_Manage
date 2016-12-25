@@ -60,6 +60,7 @@ struct SBook{
 	Pub_Tim P_Tim;//(出版日期)
 	Status isBorrow;//（是否被借阅）
 	Bor_Tim b_Time;//最长借阅时间
+	list<SBook> book_Ls;
 };
 
 typedef struct SBook Book;
@@ -80,7 +81,7 @@ struct SPublish_Dep{
 	Pub_Comm_Add Pub_Add; //(出版社联系方式)
 };
 
-typedef list<Book> * List_head;
+//typedef list<Book> * List_head;
 /**********************************************/
 /*The headers are:
 1.B_Tit
@@ -88,6 +89,6 @@ typedef list<Book> * List_head;
 3.C_ID
 4.Pub_Dep*/
 /**********************************************/
-typedef vector<List_head> Classify_Tree;
-
+//typedef vector<List_head> Classify_Tree;
+typedef vector<list<Book>> Classify_Tree;
 #endif
