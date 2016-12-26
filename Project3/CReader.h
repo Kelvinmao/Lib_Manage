@@ -16,6 +16,7 @@ class CLibrary;
 class CSearch_Book;
 //Defination of reader
 class CReader{
+	friend class CLibrary;
 private:
 	int book_Amount;
 	float own_Mon;
@@ -26,8 +27,8 @@ private:
 	string phone_Num;//reader's phone number
 	list<Book> borrowed_Book;//A list contains a reader's all borrowed book
 public:
-	CReader(){};
-	CReader(const string & name, const string & comm, const string & phone) :r_Name(name), comm_Addr(comm), phone_Num(phone){}
+	CReader() :r_ID(""), r_Name(""), comm_Addr(""), phone_Num(""), r_password(""){};
+	CReader(const string & rid, const string & name, const string & comm, const string & phone, const string & r_pass) :r_ID(rid),r_Name(name), comm_Addr(comm), phone_Num(phone),r_password(r_pass){}
 	bool sign_Up_As_A_New_Reader(CLibrary & lib);
 	/*These following functions borrow book from the Classify Tree,so I process this procedure carefully
 	//so the code has so many "if-else"

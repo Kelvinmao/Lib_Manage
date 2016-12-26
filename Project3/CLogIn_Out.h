@@ -19,7 +19,6 @@ private:
 	int user_Type;
 	bool admin_flag;
 	bool reader_flag;
-	vector<string> admin_Info;
 public:
 	CLogin_Out(){ admin_flag = false; reader_flag = false; }
 	bool choose_User_Type();
@@ -28,6 +27,9 @@ public:
 	bool admin_Logout();
 	bool reader_Login(CLibrary & lib);
 	bool reader_Logout(const CLibrary & lib);
+	bool check_Admin_Login_State(){ return admin_flag; }
+	bool check_Reader_Login_State(){ return reader_flag; }
+	~CLogin_Out(){ admin_flag = false; reader_flag = false; }
 };
 
 #endif

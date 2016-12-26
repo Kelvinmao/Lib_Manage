@@ -45,15 +45,20 @@ private:
 	Classify_Tree classify_Tree;
 	vector<string> reader_Names;//This vector contains all the reader's name
 	vector<CReader> readers_Vec;
+	vector<CReader> new_Reader_Vec;//This is a vector contains new readers.
 public:
 	CLibrary();
 	bool Set_And_Save_Info(); //To Input the info of the library,like name,date and etc.
+	bool load_Readers_Info_From_File();//construct the reader_vec from file
 	bool Load_Info(const string & file_path);//Load infomation from configuration file
 	bool Show_Info(const string &, const string &, const string &);//Show all info and let user check them.
 	bool Change_Info();//Change the info
 	bool Show_Info_From_File();
 	/*bool Change_Path(const string & usr_Path_Name);*///Change the default path of the configuration file
 	bool Load_Book_From_File();
+	bool push_New_Reader_Into_NewReaderVec(CReader & new_Reader){ new_Reader_Vec.push_back(new_Reader); return true; }
+	//tmp
+	//bool push_reader_into_reader_vec(CReader & reader){ readers_Vec.push_back(reader); return true; }
 };
 
 #endif

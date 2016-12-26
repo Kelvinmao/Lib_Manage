@@ -76,6 +76,36 @@ bool CLibrary::Load_Info(const string & file_Path){
 	return true;
 }
 
+bool CLibrary::load_Readers_Info_From_File(){
+	ifstream fin("all_Readers.txt",ios_base::in);
+	string tmp[100];//还是开一个100个字符串的缓冲区
+	if (!fin.is_open()){
+		cout << "无法打开会员信息文件" << endl;
+		return false;
+	}
+	else{
+		int count = 0;//计数变量
+		while (getline(fin, tmp[count % 100]) && tmp[count % 100].size() > 0){
+			istringstream str(tmp[count % 100]);
+			string reader_tmp[5];
+			int i = 0;
+			for (string item; str >> item; i++)
+				reader_tmp[i] = item;
+			CReader * reader = new CReader;
+			reader->r_ID = reader_tmp[0];
+			reader->r_Name = reader_tmp[1];
+			reader->comm_Addr = reader_tmp[2];
+			reader->phone_Num = reader_tmp[3];
+			reader->r_password = reader_tmp[4];
+			readers_Vec.push_back((*reader));
+			delete reader;
+			++count;
+		}
+		fin.close();
+	}
+	return true;
+}
+
 bool CLibrary::Change_Info(){
 	ifstream fin("Lib_Info.txt");
 	vector<string> info;

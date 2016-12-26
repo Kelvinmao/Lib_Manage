@@ -94,6 +94,7 @@
     <ClCompile Include="CLibrary.cpp" />
     <ClCompile Include="CLogFile.cpp" />
     <ClCompile Include="CLogIn_Out.cpp" />
+    <ClCompile Include="CPassword.cpp" />
     <ClCompile Include="CReader.cpp" />
     <ClCompile Include="CSearch_Book.cpp" />
     <ClCompile Include="CSort.cpp" />

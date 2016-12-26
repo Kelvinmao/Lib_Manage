@@ -13,9 +13,10 @@ int main(void){
 	CLibrary lib;
 	CData_Processor D_pro;
 	CSearch_Book searcher;
-	CReader reader("kelvin", "392357160@qq.com", "18146567626");
+	CReader reader("2015210983","kelvin", "392357160@qq.com", "18146567626","bupt123");
 	CBook books;
 	CLogin_Out user_log;
+
 	lib.Load_Book_From_File();
 	vector<string> title_vec;
 	vector<string> auth_vec;
@@ -26,8 +27,8 @@ int main(void){
 	books.Visit_Pub_Dep_In_Book_Vec_File(lib,pub_vec);
 	books.Visit_cID_In_Book_Vec_File(lib,cid_vec);
 	Book * book_vec = books.Get_Book_Vec();
-	cout << auth_vec.size() << endl;
-	cout << pub_vec.size() << endl;
+	//cout << auth_vec.size() << endl;
+	//cout << pub_vec.size() << endl;
 	D_pro.Init_Classify_Tree(lib);
 	for (int i = 0; i < auth_vec.size(); ++i){
 		D_pro.Classify_Book_By_Title(lib, title_vec[i]);
@@ -35,15 +36,28 @@ int main(void){
 		D_pro.Classify_Book_By_Pud_Dep(lib, pub_vec[i]);
 		D_pro.Classify_Book_By_C_ID(lib, cid_vec[i]);
 	}
-	cout << "请先登录" << endl;
+	/*lib.push_reader_into_reader_vec(reader);
+	reader.write_Readers_Info_Into_File(lib);*/
+	lib.load_Readers_Info_From_File();
+	cout << "尊敬的用户，您好，请先登录" << endl;
 	user_log.choose_User_Type();
 	if (user_log.get_User_Type() == 1)
 		user_log.admin_Login();
 	if (user_log.get_User_Type() == 2)
 		user_log.reader_Login(lib);
-	system("cls");
-
-	cout << "==========================欢迎使用图书馆后台管理系统：==========================" << endl;
+	if (user_log.get_User_Type() == 3){
+		CReader * new_reader = new CReader;
+		new_reader->sign_Up_As_A_New_Reader(lib);
+		delete new_reader;
+		new_reader = nullptr;
+		reader.write_Readers_Info_Into_File(lib);
+		user_log.reader_Login(lib);
+	}
+	if (user_log.check_Admin_Login_State() || user_log.check_Reader_Login_State())
+		system("cls");
+	else
+		cout << "用户名或密码有误" << endl;
+	cout << "==========================欢迎使用图书馆信息管理系统：==========================" << endl;
 	cout << "                              1.查询图书" << endl;
 	cout << "                              2.借阅图书" << endl;
 	cout << "                              3.归还图书" << endl;
@@ -245,6 +259,14 @@ int main(void){
 			cout << "请检查您的输入" << endl;
 		}
 		}
+		break;
+	}
+	case 0:{
+		user_log.~CLogin_Out();
+		if (user_log.check_Admin_Login_State() == false || user_log.check_Reader_Login_State() == false)
+			cout << "注销成功，感谢您的使用" << endl;
+		else
+			cout << "注销失败" << endl;
 		break;
 	}
 	}

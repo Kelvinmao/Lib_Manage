@@ -28,19 +28,23 @@ bool CReader::sign_Up_As_A_New_Reader(CLibrary & lib){
 	cout << "请填写下面的信息用于注册成为本馆会员" << endl;
 	cout << "学号:" << endl;
 	cin >> r_ID;
+	char tmp = getchar();
 	cout << "姓名:" << endl;
 	cin >> r_Name;
+	tmp = getchar();
 	cout << "电子邮箱:" << endl;
 	cin >> comm_Addr;
+	tmp = getchar();
 	cout << "手机号码:" << endl;
 	cin >> phone_Num;
-	cout << "密码" << endl;
+	tmp = getchar();
 	password.inputPassword();
 	r_password = password.getPassword();
-	cout << "请确认您的信息" << endl;
+	cout <<endl<< "请确认您的信息" << endl;
 	cout << "姓名: " << r_Name << endl << "学号: " << r_ID << endl << endl << "电子邮箱: " << comm_Addr << endl;
 	cout << "手机号码: " << phone_Num << endl;
 	lib.readers_Vec.push_back((*this));
+	lib.new_Reader_Vec.push_back((*this));
 	return true;
 }
 
@@ -326,17 +330,6 @@ bool CReader::show_All_Borrowed_Books(){
 	return true;
 }
 
-//bool CReader::write_Reader_Name_Into_File(){
-//	ofstream fout("all_Names.txt", ios_base::app);
-//	if (fout.is_open()){
-//		cout << "打开文件失败,请重试" << endl;
-//		return false;
-//	}
-//	else
-//		fout << r_Name << endl;
-//	return true;
-//}
-
 bool CReader::write_Readers_Info_Into_File(const CLibrary & lib){
 	ofstream fout("all_Readers.txt", ios_base::app);
 	if (!fout.is_open()){
@@ -344,8 +337,10 @@ bool CReader::write_Readers_Info_Into_File(const CLibrary & lib){
 		return false;
 	}
 	else{
-		vector<CReader>::const_iterator c_iter = lib.readers_Vec.cbegin();
-		for (c_iter; c_iter != lib.readers_Vec.cend(); ++c_iter){
+		//It's better to just append new_readers into the file
+		//vector<CReader>::const_iterator c_iter = lib.readers_Vec.cbegin();
+		vector<CReader>::const_iterator c_iter = lib.new_Reader_Vec.cbegin();
+		for (c_iter; c_iter != lib.new_Reader_Vec.cend(); ++c_iter){
 			fout << c_iter->r_ID << "    " << c_iter->r_Name << "    " << c_iter->comm_Addr<<"    ";
 			fout << c_iter->phone_Num << "    " << c_iter->r_password << endl;
 		}
