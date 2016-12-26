@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CInitializer.h" />
     <ClInclude Include="CLogIn_Out.h" />
     <ClInclude Include="Comp_Functions.h" />
     <ClInclude Include="CReader.h" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBook.cpp" />
+    <ClCompile Include="CInitializer.cpp" />
     <ClCompile Include="CLibrary.cpp" />
     <ClCompile Include="CLogFile.cpp" />
     <ClCompile Include="CLogIn_Out.cpp" />

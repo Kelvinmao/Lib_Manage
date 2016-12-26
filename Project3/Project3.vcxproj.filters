@@ -54,6 +54,9 @@
     <ClInclude Include="CLogIn_Out.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CInitializer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Lib_Info.txt">
@@ -104,6 +107,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CPassword.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CInitializer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
