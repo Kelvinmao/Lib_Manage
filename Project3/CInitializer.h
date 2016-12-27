@@ -31,7 +31,8 @@ public:
 					vector<string> & pub,
 					vector<string> & cid
 					);
-
+	bool login(CLogin_Out & user_log, CReader & reader, CLibrary & lib);
+	~CInitializer(){}
 };
 
 #endif

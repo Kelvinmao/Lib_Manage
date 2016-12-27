@@ -74,8 +74,10 @@ bool CLogin_Out::reader_Login(CLibrary & lib){
 	reader_password = password.getPassword();
 	vector<CReader>::iterator c_iter= lib.readers_Vec.begin();
 	for (c_iter; c_iter != lib.readers_Vec.end(); ++c_iter){
-		if (c_iter->get_Reader_Name() == reader_name && c_iter->get_Reader_Password() == reader_password)
+		if (c_iter->get_Reader_Name() == reader_name && c_iter->get_Reader_Password() == reader_password){
 			reader_flag = true;
+			cur_Reader = ((*c_iter));
+		}
 	}
 	return true;
 }

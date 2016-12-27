@@ -46,6 +46,7 @@ public:
 	bool Write_Cache_Into_File();
 	bool Show_Search_Result();
 	friend ofstream & operator <<(ofstream & fout,const Book & book);
+	~CSearch_Book(){}
 };
 
 #endif

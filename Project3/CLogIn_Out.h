@@ -19,6 +19,7 @@ private:
 	int user_Type;
 	bool admin_flag;
 	bool reader_flag;
+	CReader cur_Reader;
 public:
 	CLogin_Out(){ admin_flag = false; reader_flag = false; }
 	bool choose_User_Type();
@@ -29,6 +30,7 @@ public:
 	bool reader_Logout(const CLibrary & lib);
 	bool check_Admin_Login_State(){ return admin_flag; }
 	bool check_Reader_Login_State(){ return reader_flag; }
+	CReader & return_Current_User(){ return cur_Reader; }
 	~CLogin_Out(){ admin_flag = false; reader_flag = false; }
 };
 

@@ -62,5 +62,6 @@ public:
 	bool change_Reader_Password();
 	const string & get_Reader_Name(){ return r_Name; }
 	const string & get_Reader_Password(){ return r_password; }
+	~CReader(){}
 };
 #endif

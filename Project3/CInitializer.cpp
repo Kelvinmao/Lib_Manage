@@ -10,6 +10,7 @@
 #include"CData_Processor.h"
 #include"CSearch_Book.h"
 #include"CInitializer.h"
+#include"CLogIn_Out.h"
 #include"CLibrary.h"
 #include"CReader.h"
 #include"CBook.h"
@@ -38,5 +39,30 @@ bool CInitializer::Initialize(
 		Data_processor.Classify_Book_By_Auth_Name(library, auth[i]);
 		Data_processor.Classify_Book_By_Pud_Dep(library, pub[i]);
 		Data_processor.Classify_Book_By_C_ID(library, cid[i]);
+	}
+	library.load_Readers_Info_From_File();
+	return true;
+}
+
+bool CInitializer::login(CLogin_Out & user_log, CReader & reader, CLibrary & lib){
+	cout << "尊敬的用户，您好，请先登录" << endl;
+	user_log.choose_User_Type();
+	if (user_log.get_User_Type() == 1)
+		user_log.admin_Login();
+	if (user_log.get_User_Type() == 2)
+		user_log.reader_Login(lib);
+	if (user_log.get_User_Type() == 3){
+		CReader * new_reader = new CReader;
+		new_reader->sign_Up_As_A_New_Reader(lib);
+		delete new_reader;
+		new_reader = nullptr;
+		reader.write_Readers_Info_Into_File(lib);
+		user_log.reader_Login(lib);
+	}
+	if (user_log.check_Admin_Login_State() || user_log.check_Reader_Login_State())
+		system("cls");
+	else{
+		cout << "用户名或密码有误" << endl;
+		return false;
 	}
 }

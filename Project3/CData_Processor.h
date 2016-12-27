@@ -40,9 +40,7 @@ public:
 	bool Classify_Book_By_Auth_Name(CLibrary & lib, const string & auth_Name);
 	bool Classify_Book_By_C_ID(CLibrary & lib, const string & classify_Id);
 	bool Classify_Book_By_Pud_Dep(CLibrary & lib, const string & pub_Dep);
-	//Maybe it's neccessry to add a method for write the classify_Tree to File
-	//TODO:Consider a proper format for the Classify_Tree in file
-	//bool Write_Classify_Tree_To_File(const CLibrary & lib, const string & file_Path);
+	~CData_Processor(){};
 };
 
 #endif
