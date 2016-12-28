@@ -280,6 +280,7 @@ bool CReader::borrow_Book_By_pub_Dep(CLibrary & lib, CSearch_Book & sear_Book, c
 //book is from CSearch_Book::result
 bool CReader::borrow_Book_By_bID(CLibrary & lib,CSearch_Book & sear_Book, const Book_ID & bid){
 	sear_Book.Search_By_Book_Id(lib, bid);
+	sear_Book.Show_Search_Result();
 	if (sear_Book.iter_Vec[0]->isBorrow == false){
 		cout << "您已经借阅本馆藏书:" << "标题为: " << sear_Book.iter_Vec[0]->B_Tit;
 		cout << "出版社为: " << sear_Book.iter_Vec[0]->P_Dep;
@@ -349,23 +350,6 @@ bool CReader::write_Readers_Info_Into_File(const CLibrary & lib){
 	return false;
 }
 
-bool CReader::read_Names_From_File(CLibrary & lib){
-	ifstream fin("all_Names.txt", ios_base::in);
-	if (!fin.is_open()){
-		cout << "打开文件失败，请重试" << endl;
-		return false;
-	}
-	else{
-		string tmp;
-		while (!fin.eof()){
-			getline(fin, tmp);
-			lib.reader_Names.push_back(tmp);
-		}
-	}
-	return true;
-}
-
-//TODO:Finish this method
 bool CReader::read_Readers_Info_From_File(CLibrary & lib){
 	ifstream fin("all_Readers.txt", ios_base::in);
 	string tmp[100];

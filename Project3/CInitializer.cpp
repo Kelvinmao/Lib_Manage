@@ -59,8 +59,10 @@ bool CInitializer::login(CLogin_Out & user_log, CReader & reader, CLibrary & lib
 		reader.write_Readers_Info_Into_File(lib);
 		user_log.reader_Login(lib);
 	}
-	if (user_log.check_Admin_Login_State() || user_log.check_Reader_Login_State())
+	if (user_log.check_Admin_Login_State() || user_log.check_Reader_Login_State()){
 		system("cls");
+		return true;
+	}
 	else{
 		cout << "用户名或密码有误" << endl;
 		return false;

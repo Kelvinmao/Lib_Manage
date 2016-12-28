@@ -83,7 +83,8 @@ bool CLogin_Out::reader_Login(CLibrary & lib){
 }
 
 //这个方法让我再考虑考虑
-bool CLogin_Out::reader_Logout(const CLibrary & lib){
+bool CLogin_Out::reader_Logout(){
+	this->reader_flag = false;
 	return true;
 }
 
