@@ -26,7 +26,13 @@ int main(void){
 	vector<string> cid_vec;
 	initializer.Initialize(D_pro, searcher, lib, reader, books, title_vec, auth_vec, pub_vec, cid_vec);
 	bool check = initializer.login(user_log, reader, lib);
-	while (!check){ check = initializer.login(user_log, reader, lib); }
+	/*while (!check){ check = initializer.login(user_log, reader, lib); }*/
+	while (true){
+		if (!check)
+			check = initializer.login(user_log, reader, lib);
+		else
+			break;
+	}
 	while (check){
 		if (user_log.get_User_Type() == 2){
 			int choice = 0;
@@ -257,6 +263,7 @@ int main(void){
 							cout << "页面将于3秒后自动关闭" << endl;
 							Sleep(3000);
 							system("cls");
+							check = initializer.login(user_log, reader, lib);
 						}
 						else
 							cout << "注销失败" << endl;
@@ -264,7 +271,6 @@ int main(void){
 					}
 				}
 				}
-				check = initializer.login(user_log, reader, lib);
 			}
 			}
 	}

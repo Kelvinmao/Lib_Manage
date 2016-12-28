@@ -25,6 +25,21 @@ bool CSearch_Book::Search_By_Title(CLibrary & lib, const string & title){
 		result.clear();
 		iter_Vec.clear();
 	}
+	if (!Cache.empty()){
+		vector<Book>::const_iterator c_iter = Cache.cbegin();
+		for (c_iter; c_iter != Cache.cend(); ++c_iter){
+			if (c_iter->B_Tit == title){
+				cout << "以下是从缓存中查询到的内容," << endl;
+				cout << "书目编号: " << c_iter->B_Id;
+				cout << "标题: " << c_iter->B_Tit << "    " << "作者: " << c_iter->A_Name << "    ";
+				cout << "出版社: " << c_iter->P_Dep<< "借阅状态: ";
+				if (c_iter->isBorrow)
+					cout << "已借出" << endl;
+				else
+					cout << "可借阅" << endl;
+			}
+		}
+	}
 	if (lib.classify_Tree[0].empty()==true){
 		cout << "待查找序列为空" << endl;
 		return false;
@@ -62,6 +77,21 @@ bool CSearch_Book::Search_By_Auth_Name(CLibrary & lib,const string & auth_Name){
 	if (result.empty() == false){
 		result.clear();
 		iter_Vec.clear();
+	}
+	if (!Cache.empty()){
+		vector<Book>::const_iterator c_iter = Cache.cbegin();
+		for (c_iter; c_iter != Cache.cend(); ++c_iter){
+			if (c_iter->B_Tit == auth_Name){
+				cout << "以下是从缓存中查询到的内容," << endl;
+				cout << "书目编号: " << c_iter->B_Id;
+				cout << "标题: " << c_iter->B_Tit << "    " << "作者: " << c_iter->A_Name << "    ";
+				cout << "出版社: " << c_iter->P_Dep << "借阅状态: ";
+				if (c_iter->isBorrow)
+					cout << "已借出" << endl;
+				else
+					cout << "可借阅" << endl;
+			}
+		}
 	}
 	if (lib.classify_Tree[1].empty()){
 		cout << "待查找序列为空" << endl;
@@ -101,6 +131,21 @@ bool CSearch_Book::Search_By_CId(CLibrary & lib, const string & c_ID){
 		result.clear();
 		iter_Vec.clear();
 	}
+	if (!Cache.empty()){
+		vector<Book>::const_iterator c_iter = Cache.cbegin();
+		for (c_iter; c_iter != Cache.cend(); ++c_iter){
+			if (c_iter->B_Tit == c_ID){
+				cout << "以下是从缓存中查询到的内容," << endl;
+				cout << "书目编号: " << c_iter->B_Id;
+				cout << "标题: " << c_iter->B_Tit << "    " << "作者: " << c_iter->A_Name << "    ";
+				cout << "出版社: " << c_iter->P_Dep << "借阅状态: ";
+				if (c_iter->isBorrow)
+					cout << "已借出" << endl;
+				else
+					cout << "可借阅" << endl;
+			}
+		}
+	}
 	if (lib.classify_Tree[2].empty()){
 		cout << "待查找序列为空" << endl;
 		return false;
@@ -138,6 +183,21 @@ bool CSearch_Book::Search_By_Pub_Dep(CLibrary & lib, const string & pub_Dep){
 	if (result.empty() == false){
 		result.clear();
 		iter_Vec.clear();
+	}
+	if (!Cache.empty()){
+		vector<Book>::const_iterator c_iter = Cache.cbegin();
+		for (c_iter; c_iter != Cache.cend(); ++c_iter){
+			if (c_iter->B_Tit ==pub_Dep){
+				cout << "以下是从缓存中查询到的内容," << endl;
+				cout << "书目编号: " << c_iter->B_Id;
+				cout << "标题: " << c_iter->B_Tit << "    " << "作者: " << c_iter->A_Name << "    ";
+				cout << "出版社: " << c_iter->P_Dep << "借阅状态: ";
+				if (c_iter->isBorrow)
+					cout << "已借出" << endl;
+				else
+					cout << "可借阅" << endl;
+			}
+		}
 	}
 	if (lib.classify_Tree[3].empty()){
 		cout << "待查找序列为空" << endl;
@@ -322,7 +382,8 @@ bool CSearch_Book::Show_Search_Result(){
 	}
 	vector<Book>::const_iterator pos = result.cbegin();
 	for (pos; pos != result.cend(); ++pos){
-		cout << pos->B_Tit << "   " << pos->A_Name << "   " << pos->P_Dep<<"   ";
+		cout << "书目编号: " << pos->B_Id <<"    "<< "标题: ";
+		cout << pos->B_Tit << "    " << "作者: "<<pos->A_Name << "    " << "出版社: "<<pos->P_Dep<<"   ";
 		if (pos->isBorrow==true)
 			cout << "已借出"<<endl;
 		else
