@@ -56,6 +56,7 @@ public:
 	bool Show_Info_From_File();
 	/*bool Change_Path(const string & usr_Path_Name);*///Change the default path of the configuration file
 	bool Load_Book_From_File();
+	bool push_Reader_Into_ReaderVec(CReader & reader){ readers_Vec.push_back(reader); return true; }
 	bool push_New_Reader_Into_NewReaderVec(CReader & new_Reader){ new_Reader_Vec.push_back(new_Reader); return true; }
 	~CLibrary(){};
 };

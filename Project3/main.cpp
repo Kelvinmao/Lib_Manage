@@ -1,5 +1,7 @@
 #include<iostream>
+#include<Windows.h>
 #include<cstdlib>
+#include<ctime>
 #include"CData_Processor.h"
 #include"Data_Structure.h"
 #include"CSearch_Book.h"
@@ -24,6 +26,7 @@ int main(void){
 	vector<string> cid_vec;
 	initializer.Initialize(D_pro, searcher, lib, reader, books, title_vec, auth_vec, pub_vec, cid_vec);
 	bool check = initializer.login(user_log, reader, lib);
+	while (!check){ check = initializer.login(user_log, reader, lib); }
 	while (check){
 		if (user_log.get_User_Type() == 2){
 			int choice = 0;
@@ -249,8 +252,12 @@ int main(void){
 					else{
 						user_log.reader_Logout();
 						user_log.~CLogin_Out();
-						if (user_log.check_Reader_Login_State() == false)
+						if (user_log.check_Reader_Login_State() == false){
 							cout << "注销成功，感谢您的使用" << endl;
+							cout << "页面将于3秒后自动关闭" << endl;
+							Sleep(3000);
+							system("cls");
+						}
 						else
 							cout << "注销失败" << endl;
 						break;

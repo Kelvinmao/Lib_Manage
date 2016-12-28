@@ -10,11 +10,14 @@
 
 #include<iostream>
 #include"Data_Structure.h"
+#include"CInitializer.h"
 #include"CLibrary.h"
 using namespace std;
 
 class CLibrary;
+class CInitializer;
 class CLogin_Out{
+	friend class CInitializer;
 private:
 	int user_Type;//用户类型，区分管理员和普通用户
 	bool admin_flag;//管理员登录标记
@@ -30,6 +33,8 @@ public:
 	bool reader_Logout();//~登出
 	bool check_Admin_Login_State(){ return admin_flag; }//检查登录状态
 	bool check_Reader_Login_State(){ return reader_flag; }
+	bool set_Reader_Login_State(){ reader_flag = true; return true; }
+	bool set_User_Type(const int & type){ user_Type = type; return true; }
 	CReader & return_Current_User(){ return cur_Reader; }//返回当前用户对象
 	~CLogin_Out(){ admin_flag = false; reader_flag = false; }
 };

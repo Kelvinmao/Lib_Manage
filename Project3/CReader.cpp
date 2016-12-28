@@ -43,8 +43,8 @@ bool CReader::sign_Up_As_A_New_Reader(CLibrary & lib){
 	cout <<endl<< "请确认您的信息" << endl;
 	cout << "姓名: " << r_Name << endl << "学号: " << r_ID << endl << endl << "电子邮箱: " << comm_Addr << endl;
 	cout << "手机号码: " << phone_Num << endl;
-	lib.readers_Vec.push_back((*this));
-	lib.new_Reader_Vec.push_back((*this));
+	/*lib.readers_Vec.push_back((*this));
+	lib.new_Reader_Vec.push_back((*this));*/
 	return true;
 }
 

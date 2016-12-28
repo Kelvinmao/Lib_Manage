@@ -53,11 +53,17 @@ bool CInitializer::login(CLogin_Out & user_log, CReader & reader, CLibrary & lib
 		user_log.reader_Login(lib);
 	if (user_log.get_User_Type() == 3){
 		CReader * new_reader = new CReader;
-		new_reader->sign_Up_As_A_New_Reader(lib);
+		new_reader->sign_Up_As_A_New_Reader(lib); 
+		lib.push_Reader_Into_ReaderVec((*new_reader));
+		lib.push_New_Reader_Into_NewReaderVec((*new_reader));
+		user_log.cur_Reader = (*new_reader);
 		delete new_reader;
 		new_reader = nullptr;
 		reader.write_Readers_Info_Into_File(lib);
-		user_log.reader_Login(lib);
+		user_log.set_Reader_Login_State();
+		const int type = 2;
+		user_log.set_User_Type(type);
+		return true;
 	}
 	if (user_log.check_Admin_Login_State() || user_log.check_Reader_Login_State()){
 		system("cls");
