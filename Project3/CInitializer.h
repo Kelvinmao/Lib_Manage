@@ -21,6 +21,7 @@ class CInitializer{
 private:
 public:
 	CInitializer(){}
+	//初始化，从文件中读取数据，构建Classsyfy_Tree
 	bool Initialize(CData_Processor & Data_processor, 
 					CSearch_Book & Book_Searcher, 
 					CLibrary & library, 
@@ -31,6 +32,7 @@ public:
 					vector<string> & pub,
 					vector<string> & cid
 					);
+	//处理用户登录
 	bool login(CLogin_Out & user_log, CReader & reader, CLibrary & lib);
 	~CInitializer(){}
 };
